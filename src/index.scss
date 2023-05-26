@@ -1,5 +1,3 @@
-$SQUARE_SIZE: 100px;
-
 * {
   box-sizing: border-box;
 }
@@ -10,12 +8,14 @@ body {
   padding: 0;
 }
 
+$SQUARE_SIZE: 100px;
+$DONE_COLOR: crimson;
 .game {
   &.done {
     .square {
-      border-width: 4px;
-      border-color: crimson;
-      color: crimson;
+      border-width: 2px;
+      border-color: $DONE_COLOR;
+      color: $DONE_COLOR;
     }  
   }
   .square {
