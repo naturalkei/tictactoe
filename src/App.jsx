@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import classnames from 'classnames'
+import Header from './header'
 
 // ReactComponent = WebComponent = CustomElement
 // https://ko.legacy.reactjs.org/docs/react-component.html
@@ -122,6 +123,7 @@ function Game ({ clss }) {
 
   return (
     <>
+      <Header />
       <div>
         <p><span>현재 플레이 횟수:</span> {currentMove}</p>
       </div>
