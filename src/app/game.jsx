@@ -56,19 +56,21 @@ export function Game ({ clss }) {
   return (
     <>
       <Header />
-      <div>
-        <p><span>현재 플레이 횟수:</span> {currentMove}</p>
-      </div>
-      <div className={classnames(clss, { done: finished })}>
-        <div className="game-board">
-          <Board
-            xIsNext={xIsNext}
-            squares={currentSquares}
-            onPlay={handlePlay}
-            onCheckWinner={handleCheckWinner} />
+      <div className="container mx-auto px-4">
+        <div className="flex">
+          <p className="p-4 mx-auto"><span>현재 플레이 횟수:</span> {currentMove}</p>
         </div>
-        <div className="game-info">
-          <ol>{moves}</ol>
+        <div className={classnames(clss, { done: finished })}>
+          <div className="mx-auto game-board">
+            <Board
+              xIsNext={xIsNext}
+              squares={currentSquares}
+              onPlay={handlePlay}
+              onCheckWinner={handleCheckWinner} />
+          </div>
+          <div className="game-info mt-4">
+            <ol>{moves}</ol>
+          </div>
         </div>
       </div>
     </>
