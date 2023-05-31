@@ -41,14 +41,19 @@ export function Board ({ xIsNext, squares, onPlay, onCheckWinner }) {
 
   return (
     <>
-      <div className="status">{status}</div>
-      {list.map((arr, i) => (
-        <div key={i} className="board-row">
-          {arr.map(n => (
-            <Square key={n} value={squares[n]} onSquareClick={() => handleClick(n)} />
-          ))}
-        </div>
-      ))}
+      <div className="status">
+        <p className="text-center">{status}</p>
+      </div>
+      <div className="flex flex-col">
+        {list.map((arr, i) => (
+          <div key={i} className="board-row flex flex-row mx-auto">
+            {arr.map(n => (
+              <Square key={n} value={squares[n]} onSquareClick={() => handleClick(n)} />
+            ))}
+          </div>
+        ))}
+      </div>
+
       {/* <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />

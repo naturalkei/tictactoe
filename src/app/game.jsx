@@ -61,7 +61,7 @@ export function Game ({ clss }) {
           <p className="p-4 mx-auto"><span>현재 플레이 횟수:</span> {currentMove}</p>
         </div>
         <div className={classnames(clss, { done: finished })}>
-          <div className="mx-auto game-board">
+          <div className="game-board">
             <Board
               xIsNext={xIsNext}
               squares={currentSquares}
