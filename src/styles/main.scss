@@ -1,26 +1,15 @@
-// * {
-//   box-sizing: border-box;
-// }
-// body {
-//   font-family: sans-serif;
-//   // margin: 20px;
-//   // padding: 0;
-// }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-$SQUARE_SIZE: 100px;
-$DONE_COLOR: crimson;
+@import './tailwind';
+@import './vars';
 
 .game {
+  display: flex;
+  flex-direction: row;
+  
   &.done {
     .square {
       border-width: 2px;
-      border-color: $DONE_COLOR;
-      color: $DONE_COLOR;
+      border-color: $DONE_BORDER_COLOR;
+      color: $DONE_BORDER_COLOR;
     }  
   }
   .square {
@@ -39,8 +28,6 @@ $DONE_COLOR: crimson;
   }
 }
 
-
-
 .board-row:after {
   clear: both;
   content: '';
@@ -49,10 +36,6 @@ $DONE_COLOR: crimson;
 
 .status {
   margin-bottom: 10px;
-}
-.game {
-  display: flex;
-  flex-direction: row;
 }
 
 .game-info {
