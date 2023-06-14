@@ -43,11 +43,11 @@ $X_BGCOLOR: #746dd0;
   }
   
   .x-winner {
-    @inlcude playerText($X_BGCOLOR);
+    @include playerText($X_BGCOLOR);
   }
   
   .o-winner {
-    @inlcude playerText(#ff9bc6);
+    @include playerText(#ff9bc6);
   }
   
   &.done {
