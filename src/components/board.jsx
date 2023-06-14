@@ -1,4 +1,4 @@
-import { calculateWinner } from '../func'
+import { calculateWinner } from '../util'
 import { Square } from '../components'
 
 export function Board ({ xIsNext, squares, onPlay, onCheckWinner }) {

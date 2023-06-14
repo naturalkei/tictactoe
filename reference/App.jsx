@@ -175,6 +175,7 @@ export default function App () {
     } else {
       setGameState(GAME_STATE.PLAYER_TURN)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState, grid])
 
   // Reset state to default values
