@@ -4,6 +4,7 @@
 $O_BGCOLOR: #cb6893;
 $X_BGCOLOR: #746dd0;
 
+// https://sass-lang.com/documentation/at-rules/mixin
 @mixin playerSquare ($bgColor, $color) {
   background: $bgColor;
   background: -webkit-linear-gradient(to right, $bgColor 0%, $color 100%);
