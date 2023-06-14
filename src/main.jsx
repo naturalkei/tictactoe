@@ -1,11 +1,9 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Game } from './app'
 import './styles/main.scss'
 
 const rootEl = document.getElementById('root')
 createRoot(rootEl).render(
-  <StrictMode>
-    <Game clss="tictactoe game" />
-  </StrictMode>
+  <Game clss="tictactoe game" />
 )
