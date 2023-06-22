@@ -1,11 +1,9 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Game from './App.jsx'
-import './index.scss'
+import { Game } from './app'
+import './styles/main.scss'
 
-const root = document.getElementById('root')
-createRoot(root).render(
-  <StrictMode>
-    <Game clss="tictactoe game" />
-  </StrictMode>
+const rootEl = document.getElementById('root')
+createRoot(rootEl).render(
+  <Game />
 )

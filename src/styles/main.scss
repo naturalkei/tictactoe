@@ -1,0 +1,89 @@
+@import './tailwind';
+@import './vars';
+
+$O_BGCOLOR: #cb6893;
+$X_BGCOLOR: #746dd0;
+
+// https://sass-lang.com/documentation/at-rules/mixin
+@mixin playerSquare ($bgColor, $color) {
+  background: $bgColor;
+  background: -webkit-linear-gradient(to right, $bgColor 0%, $color 100%);
+  background: -moz-linear-gradient(to right, $bgColor 0%, $color 100%);
+  background: linear-gradient(to right, $bgColor 0%, $color 100%);
+  // -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin playerText ($color) {
+  text-shadow: 
+    0 0 10px $color,
+    0 0 0px $color,
+    0 0 40px $color,
+    0 0 2px $color;
+}
+
+* {
+  font-family: 'Open Sans', 'Noto Sans KR', 'sans-serif';
+}
+
+.game {
+  // display: flex;
+  // flex-direction: row;
+  .shadow-md {
+    box-shadow: rgba(7, 65, 210, 0.1) 0px 9px 30px !important;
+  }
+  
+  .o-player {
+    @include playerSquare($O_BGCOLOR, #f6d9d7);
+  }
+  
+  .x-player {
+    @include playerSquare($X_BGCOLOR, #c4e1eb);
+  }
+  
+  .x-winner {
+    @include playerText($X_BGCOLOR);
+  }
+  
+  .o-winner {
+    @include playerText(#ff9bc6);
+  }
+  
+  &.done {
+    .square {
+      border-width: 2px;
+      border-color: $DONE_BORDER_COLOR;
+      color: $DONE_BORDER_COLOR;
+    }  
+  }
+  
+  // .square {
+  //   background: #fff;
+  //   border: 1px solid #999;
+  //   float: left;
+  //   font-size: 50px;
+  //   font-weight: bold;
+  //   line-height: $SQUARE_SIZE;
+  //   height: $SQUARE_SIZE;
+  //   margin-right: -1px;
+  //   margin-top: -1px;
+  //   padding: 0;
+  //   text-align: center;
+  //   width: $SQUARE_SIZE;
+  // }
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+// .game-info {
+//   margin-left: 20px;
+// }
