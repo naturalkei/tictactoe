@@ -58,20 +58,20 @@ $X_BGCOLOR: #746dd0;
     }  
   }
   
-  .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 50px;
-    font-weight: bold;
-    line-height: $SQUARE_SIZE;
-    height: $SQUARE_SIZE;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: $SQUARE_SIZE;
-  }
+  // .square {
+  //   background: #fff;
+  //   border: 1px solid #999;
+  //   float: left;
+  //   font-size: 50px;
+  //   font-weight: bold;
+  //   line-height: $SQUARE_SIZE;
+  //   height: $SQUARE_SIZE;
+  //   margin-right: -1px;
+  //   margin-top: -1px;
+  //   padding: 0;
+  //   text-align: center;
+  //   width: $SQUARE_SIZE;
+  // }
 }
 
 .board-row:after {

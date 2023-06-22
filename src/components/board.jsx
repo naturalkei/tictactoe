@@ -51,7 +51,7 @@ export function Board ({ grid, xIsNext, squares, onPlay, onCheckWinner, moveCoun
       </div>
       <div className="flex flex-col">
         <div className="max-w-md mx-auto">
-          <div className="max-w-lg flex flex-col gap-5 mx-auto">
+          <div className="max-w-lg flex flex-col gap-5 mx-auto" style={{ marginRight: '-1.25rem' }}>
             {list.map((arr, i) => (
               <div key={i} className="board-row flex gap-5 mx-auto">
                 {arr.map(n => (
