@@ -5,5 +5,5 @@ import './styles/main.scss'
 
 const rootEl = document.getElementById('root')
 createRoot(rootEl).render(
-  <Game clss="tictactoe game" />
+  <Game />
 )

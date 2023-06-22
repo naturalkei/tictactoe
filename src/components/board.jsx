@@ -1,14 +1,17 @@
+import { GAME_STATE } from '../constants'
 import { calculateWinner } from '../util'
 import { Square } from '../components'
 
-export function Board ({ xIsNext, squares, onPlay, onCheckWinner }) {
-  const winner = calculateWinner(squares)
+export function Board ({ grid, xIsNext, squares, onPlay, onCheckWinner, moveCount }) {
+  const result = calculateWinner(grid, moveCount)
+  const winner = result?.winner
+  const winSpaces = result == null ? [] : result.winSpaces
 
   function handleClick (i) {
-    const win = calculateWinner(squares)
+    const res = calculateWinner(grid, moveCount)
     // console.log('** handleClick:', squares, win)
     // onClacWinner(win)
-    if (win || squares[i]) {
+    if (res?.winner || squares[i]) {
       return
     }
     // const nextPlayer = xIsNext ? 'X' : 'O'
@@ -32,7 +35,9 @@ export function Board ({ xIsNext, squares, onPlay, onCheckWinner }) {
   // } else {
   //   status = 'Next player: ' + (xIsNext ? 'X' : 'O')
   // }
-  const status = onCheckWinner(winner, xIsNext ? 'X' : 'O')
+  const status = winner == null
+    ? 'Next player: X'
+    : onCheckWinner(winner, xIsNext ? 'X' : 'O')
 
   const list = Array.from({ length: 3 }, (_, i) => i).map(n => {
     return Array.from({ length: 3 }, (_, i) => !n ? i : n * 3 + i)
@@ -45,13 +50,25 @@ export function Board ({ xIsNext, squares, onPlay, onCheckWinner }) {
         <p className="text-center">{status}</p>
       </div>
       <div className="flex flex-col">
-        {list.map((arr, i) => (
-          <div key={i} className="board-row flex flex-row mx-auto">
-            {arr.map(n => (
-              <Square key={n} value={squares[n]} onSquareClick={() => handleClick(n)} />
+        <div className="max-w-md mx-auto">
+          <div className="max-w-lg flex flex-col gap-5 mx-auto">
+            {list.map((arr, i) => (
+              <div key={i} className="board-row flex gap-5 mx-auto">
+                {arr.map(n => (
+                  <Square
+                    key={n}
+                    index={n}
+                    onSquareClick={() => handleClick(n)}
+                    squares={grid}
+                    value={squares[n]}
+                    gameState={xIsNext ? GAME_STATE.PLAYER_TURN : GAME_STATE.AI_TURN}
+                    winSpaces={winSpaces}
+                  />
+                ))}
+              </div>
             ))}
           </div>
-        ))}
+        </div>
       </div>
 
       {/* <div className="board-row">

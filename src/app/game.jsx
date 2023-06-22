@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import {
+  useState
+  // useEffect
+} from 'react'
 import classnames from 'classnames'
 import { Header, Board } from '../components'
 
 // JSX.Element -> React.Component
-export function Game ({ clss }) {
+export function Game () {
   // const history2 = [null, null, null, null, null, null, null, null, null]
   // const [a, b] = [history2, function setHistory () {}]
   const [history, setHistory] = useState([Array(9).fill(null)])
@@ -11,6 +14,9 @@ export function Game ({ clss }) {
   const [finished, setFinished] = useState(false)
   const xIsNext = currentMove % 2 === 0
   const currentSquares = history[currentMove]
+
+  // useEffect(() => {
+  // }, [currentMove, history])
 
   function handlePlay (nextSquares) {
     const nextHistory = [
@@ -22,7 +28,7 @@ export function Game ({ clss }) {
   }
 
   function handleCheckWinner (winner, nextPlayer) {
-    const bFinished = winner !== null
+    const bFinished = winner != null
     let status
     if (bFinished) {
       status = 'Winner: ' + winner
@@ -60,14 +66,16 @@ export function Game ({ clss }) {
         <div className="flex">
           <p className="p-4 mx-auto"><span>현재 플레이 횟수:</span> {currentMove}</p>
         </div>
-        <div className={classnames(clss, { done: finished })}>
-          <div className="game-board">
+        <div className={classnames('tictactoe game text-center py-2 shadow-sm text-gray-400 z-50 sticky', { done: finished })}>
+          <section className="game-board py-10">
             <Board
               xIsNext={xIsNext}
+              grid={history}
               squares={currentSquares}
+              moveCount={currentMove}
               onPlay={handlePlay}
               onCheckWinner={handleCheckWinner} />
-          </div>
+          </section>
           <div className="game-info mt-4">
             <ol>{moves}</ol>
           </div>
