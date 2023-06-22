@@ -1,9 +1,6 @@
 @import './tailwind';
 @import './vars';
 
-$O_BGCOLOR: #cb6893;
-$X_BGCOLOR: #746dd0;
-
 // https://sass-lang.com/documentation/at-rules/mixin
 @mixin playerSquare ($bgColor, $color) {
   background: $bgColor;
@@ -13,9 +10,11 @@ $X_BGCOLOR: #746dd0;
   // -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
 
-@mixin playerText ($color) {
+@mixin playerWinnerText ($color) {
+  font-weight: bold;
   text-shadow: 
     0 0 10px $color,
     0 0 0px $color,
@@ -43,11 +42,11 @@ $X_BGCOLOR: #746dd0;
   }
   
   .x-winner {
-    @include playerText($X_BGCOLOR);
+    @include playerWinnerText($X_BGCOLOR);
   }
   
   .o-winner {
-    @include playerText(#ff9bc6);
+    @include playerWinnerText(#ff9bc6);
   }
   
   &.done {

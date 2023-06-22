@@ -35,9 +35,10 @@ export function Board ({ grid, xIsNext, squares, onPlay, onCheckWinner, moveCoun
   // } else {
   //   status = 'Next player: ' + (xIsNext ? 'X' : 'O')
   // }
-  const status = winner == null
-    ? 'Next player: X'
-    : onCheckWinner(winner, xIsNext ? 'X' : 'O')
+  const status = onCheckWinner(winner, xIsNext ? 'X' : 'O')
+  // const status = winner == null
+  //   ? 'Next player: X'
+  //   : onCheckWinner(winner, xIsNext ? 'X' : 'O')
 
   const list = Array.from({ length: 3 }, (_, i) => i).map(n => {
     return Array.from({ length: 3 }, (_, i) => !n ? i : n * 3 + i)

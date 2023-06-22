@@ -1,29 +1,14 @@
-import {
-  // SPACE_STATE,
-  GAME_STATE
-  // PLAYER
-} from '../../constants'
+import { GAME_STATE } from '../../constants'
 
 export const getSpaceStateClass = (value, gameState, winSpaces, spaceIndex) => {
-  let space = ''
-
-  if (value === 'O') {
-    space += 'o-player'
-
-    if (gameState === GAME_STATE.AI_WON && winSpaces.includes(spaceIndex)) {
-      space += ' o-winner'
-    }
+  let space
+  if (value !== 'O' && value !== 'X') return
+  const player = value.toLowerCase()
+  const state = player === 'o' ? GAME_STATE.AI_WON : GAME_STATE.PLAYER_WON
+  space = player + '-player'
+  if (winSpaces.includes(spaceIndex) && gameState === state) {
+    space += ` ${player}-winner`
   }
-
-  if (value === 'X') {
-    space += 'x-player'
-
-    if (gameState === GAME_STATE.PLAYER_WON && winSpaces.includes(spaceIndex)) {
-      space += ' x-winner'
-    }
-  }
-
   // console.log(value, space)
-
   return space
 }

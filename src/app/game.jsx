@@ -12,6 +12,7 @@ export function Game () {
   const [history, setHistory] = useState([Array(9).fill(null)])
   const [currentMove, setCurrentMove] = useState(0)
   const [finished, setFinished] = useState(false)
+
   const xIsNext = currentMove % 2 === 0
   const currentSquares = history[currentMove]
 
@@ -36,7 +37,10 @@ export function Game () {
       status = 'Next player: ' + nextPlayer
     }
 
-    setFinished(bFinished)
+    if (finished !== bFinished) {
+      setFinished(bFinished)
+    }
+
     console.log('** handleCheckWinner:', finished, winner)
     return status
   }
